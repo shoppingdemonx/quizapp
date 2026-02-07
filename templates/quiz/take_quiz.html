@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}{{quiz.title}}{% endblock %}
+
+{% block content %}
+<h2>{{ quiz.title }}</h2>
+<p>{{ quiz.description }}</p>
+
+<h3>Time Left: <span id="timer"></span></h3>
+
+<form method="post">
+  {% csrf_token %} 
+  {% for q in questions %}
+  <p><b>{{ forloop.counter }}. {{ q.text }}</b></p>
+  <label><input type="radio" name="{{ q.id }}" value="1" /> {{ q.option1 }}</label><br />
+  <label><input type="radio" name="{{ q.id }}" value="2" /> {{ q.option2 }}</label><br />
+  <label><input type="radio" name="{{ q.id }}" value="3" /> {{ q.option3 }}</label><br />
+  <label><input type="radio" name="{{ q.id }}" value="4" /> {{ q.option4 }}</label><br /><br />
+  {% endfor %}
+
+  <button type="submit">Submit Quiz</button>
+
+<script>
+  let timeLeft = {{ quiz.time_limit }} * 60;
+  const timerEl = document.getElementById("timer");
+  const form = document.getElementById("quizForm");
+
+  let submitted = false;
+
+  const timer = setInterval(updateTimer, 1000);
+
+  function updateTimer() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timerEl.textContent =
+      minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+
+    if (timeLeft <= 0) {
+      if (!submitted) {
+        submitted = true;
+        clearInterval(timer);
+        alert("Time is up! Submitting your quiz.");
+        form.submit();
+      }
+    } else {
+      timeLeft--;
+    }
+  }
+
+  updateTimer();
+</script>
+
+</form>
+
+{% endblock %}

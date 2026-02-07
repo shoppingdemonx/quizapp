@@ -1,0 +1,183 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: #673ab7;
+  color: #fff;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links a,
+.nav-user {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Main Container ===== */
+.container {
+  flex: 1;
+  padding: 40px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Card Layout ===== */
+.card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* ===== Roles ===== */
+.role {
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.role.teacher { background: #4caf50; }
+.role.student { background: #2196f3; }
+
+/* ===== Buttons ===== */
+.btn {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  text-decoration: none;
+  color: #fff;
+  background: #673ab7;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #512da8;
+}
+
+.btn.secondary {
+  background: #009688;
+}
+
+.btn.secondary:hover {
+  background: #00796b;
+}
+
+/* ===== Forms (login/register) ===== */
+form input, form select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background: #673ab7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #512da8;
+}
+
+.link {
+  margin: 5;
+  text-decoration: none;
+}
+.link:hover{
+  text-decoration: underline;
+}
+
+.is_teacher-container{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.is_teacher-container input{
+  width: auto;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* Table Styling */
+
+table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 100%;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #eee;
+  text-align: center;
+  padding: 10px;
+  color: #666;
+  font-size: 14px;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Question{% endblock %}
+
+{% block content %}
+<h2>Add Questions - {{ quiz.title }}</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="text" placeholder="Question text" required><br>
+  <input type="text" name="option1" placeholder="Option 1" required><br>
+  <input type="text" name="option2" placeholder="Option 2" required><br>
+  <input type="text" name="option3" placeholder="Option 3" required><br>
+  <input type="text" name="option4" placeholder="Option 4" required><br>
+
+  Correct Option:
+  <select name="correct_option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+  </select><br><br>
+
+  <button type="submit">Add Question</button>
+</form>
+
+<h3>Existing Questions</h3>
+<ul>
+  {% for q in questions %}
+    <li>{{ q.text }}</li>
+  {% empty %}
+    <li>No questions yet.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+
+{% endblock %}

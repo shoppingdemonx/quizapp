@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
+<h2>My Results</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Quiz</th>
+    <th>Score</th>
+    <th>Date</th>
+  </tr>
+
+  {% for r in results %}
+    <tr>
+      <td>{{ r.quiz.title }}</td>
+      <td>{{ r.score }} / {{ r.quiz.questions.count }}</td>
+      <td>{{ r.taken_at|date:"d M Y, H:i" }}</td>
+    </tr>
+  {% empty %}
+    <tr>
+      <td colspan="3">No attempts yet.</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<br>
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}

@@ -1,0 +1,6 @@
+<h2>Result - {{ quiz.title }}</h2>
+
+<p>Your Score: <b>{{ result.score }}</b></p>
+<p>Total Questions: {{ quiz.questions.count }}</p>
+
+<a href="{% url 'quiz_list' %}">Back to Quizzes</a>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Welcome, {{ request.user.username }}</h2>
+
+    {% if profile.is_teacher %}
+        <p>You are a <span class="role teacher">Teacher</span></p>
+        <a class="btn" href="{% url 'create_quiz' %}">Create Quiz</a>
+        <a class="btn secondary" href="{% url 'teacher_results' %}">View Results</a>
+    {% else %}
+        <p>You are a <span class="role student">Student</span></p>
+        <a class="btn" href="{% url 'quiz_list' %}">View Quizzes</a>
+        <a class="btn secondary" href="{% url 'my_results' %}">My Results</a>
+    {% endif %}
+</div>
+{% endblock %}
